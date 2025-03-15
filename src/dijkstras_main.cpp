@@ -3,8 +3,8 @@
 int main(int argc, char* argv[]){
     Graph G;
     string file;
-    if(argc >= 1) file = argv[0];
-    else file = "small.txt";
+    if(argc >= 2) {file = argv[1]; file = "src/" + file;}
+    else file = "src/small.txt";
     file_to_graph(file, G);
 
     int source = 0;
