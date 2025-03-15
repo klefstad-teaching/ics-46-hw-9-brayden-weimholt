@@ -29,7 +29,7 @@ bool edit_distance_within(const std::string& str1, const std::string& str2, int 
             }
         } 
     }
-    return ch_dist_table[len1][len2] == d;
+    return ch_dist_table[len1][len2] <= d; //changed to check if equivalent are distance within
 }
 
 bool is_adjacent(const string& word1, const string& word2){

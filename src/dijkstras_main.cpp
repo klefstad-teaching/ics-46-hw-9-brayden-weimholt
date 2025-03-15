@@ -4,7 +4,7 @@ int main(int argc, char* argv[]){
     Graph G;
     string file;
     if(argc >= 2) {file = argv[1]; file = "src/" + file;}
-    else file = "src/large.txt";
+    else file = "src/largest.txt";
     file_to_graph(file, G);
 
     int source = 0;
