@@ -6,7 +6,7 @@ int main() {
 
 
     //cout << "Running test cases..." << endl;
-    //verify_word_ladder();
+    verify_word_ladder();
     //cout << "Test cases completed." << endl;
 
     string begin_word, end_word;
