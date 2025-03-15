@@ -40,7 +40,7 @@ vector<string> generate_word_ladder(const string& begin_word, const string& end_
     queue<vector<string>> ladder_queue;
     ladder_queue.push({begin_word});
 
-    set<string> visited;
+    unordered_set<string> visited;
     visited.insert(begin_word);
 
     while (!ladder_queue.empty()) {
@@ -78,7 +78,7 @@ void load_words(set<string> & word_list, const string& file_name){
 void print_word_ladder(const vector<string>& ladder){
     if(ladder.empty()) cout << "No word ladder found."<< endl;
     else{
-        cout << "Word ladder found (" << ladder.size() - 1 << " steps):" << endl;
+        cout << "Word ladder found (" << ladder.size() - 1 << " steps):";
         for (size_t i = 0; i < ladder.size(); ++i) {
             if (i > 0) {
                 cout << " → ";
