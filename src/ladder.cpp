@@ -9,27 +9,35 @@ bool edit_distance_within(const std::string& str1, const std::string& str2, int 
     int len1 = str1.length(), len2 = str2.length();
     if(abs(len1 - len2) > d) return false; //if differ by more than d chars, not within d
 
-    vector<vector<int>> ch_dist_table(len1 + 1, vector<int>(len2+1, 0));
 
-    for (int i = 0; i <= len1; ++i) 
-        ch_dist_table[i][0] = i;  //deletions
-
-    for (int j = 0; j <= len2; ++j) 
-        ch_dist_table[0][j] = j;  //insertions
-
-    for (int i = 1; i <= len1; ++i) {
-        for (int j = 1; j <= len2; ++j) {
-            if (str1[i - 1] == str2[j - 1]) {
-                // Characters match: no cost
-                ch_dist_table[i][j] = ch_dist_table[i - 1][j - 1];
-            } else {
-                ch_dist_table[i][j] = min({ch_dist_table[i - 1][j] + 1,   // Deletion
-                                ch_dist_table[i][j - 1] + 1,   // Insertion
-                                ch_dist_table[i - 1][j - 1] + 1}); // Substitution
+    if (len1 == len2) {
+        int diff = 0;
+        for (int i = 0; i < len1; ++i) {
+            if (str1[i] != str2[i]) {
+                ++diff;
+                if (diff > d) return false; 
             }
-        } 
+        } return true; 
     }
-    return ch_dist_table[len1][len2] <= d; //changed to check if equivalent are distance within
+
+    const string& shorter = (len1 < len2) ? str1 : str2;
+    const string& longer = (len1 < len2) ? str2 : str1;
+
+    int i = 0, j = 0, diff = 0;
+    while (i < shorter.length() && j < longer.length()) {
+        if (shorter[i] == longer[j]) {
+            ++i;
+            ++j;
+        } else {
+            ++diff;
+            if (diff > d) {
+                return false;
+            }
+            ++j; 
+        }
+    }
+
+    return true;
 }
 
 bool is_adjacent(const string& word1, const string& word2){
