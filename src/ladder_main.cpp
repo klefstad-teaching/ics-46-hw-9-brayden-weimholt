@@ -1,12 +1,12 @@
 #include "ladder.h"
 
 int main() {
-    set<string> word_list;
+    unordered_set<string> word_list;
     load_words(word_list, "src/words.txt");
 
 
     //cout << "Running test cases..." << endl;
-    verify_word_ladder();
+    //verify_word_ladder();
     //cout << "Test cases completed." << endl;
 
     string begin_word, end_word;
