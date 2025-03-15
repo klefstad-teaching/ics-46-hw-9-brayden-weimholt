@@ -4,6 +4,7 @@
 #include <set>
 #include <map>
 #include <vector>
+#include <algorithm>
 #include <string>
 #include <cmath>
 
