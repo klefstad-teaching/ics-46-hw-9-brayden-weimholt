@@ -36,11 +36,11 @@ bool is_adjacent(const string& word1, const string& word2){
     return edit_distance_within(word1, word2, 1);
 }
 
-vector<string> generate_word_ladder(const string& begin_word, const string& end_word, const unordered_set<string>& word_list){
+vector<string> generate_word_ladder(const string& begin_word, const string& end_word, const set<string>& word_list){
     queue<vector<string>> ladder_queue;
     ladder_queue.push({begin_word});
 
-    unordered_set<string> visited;
+    set<string> visited;
     visited.insert(begin_word);
 
     while (!ladder_queue.empty()) {
@@ -65,7 +65,7 @@ vector<string> generate_word_ladder(const string& begin_word, const string& end_
     return {};
 }
 
-void load_words(unordered_set<string> & word_list, const string& file_name){
+void load_words(set<string> & word_list, const string& file_name){
     ifstream in(file_name);
     if(!in.is_open()) error("", "", "Input file incorrectly named.");
     string word;
@@ -92,7 +92,7 @@ void print_word_ladder(const vector<string>& ladder){
 #define my_assert(e) {cout << #e << ((e) ? " passed": " failed") << endl;}
 void verify_word_ladder() {
 
-    unordered_set<string> word_list;
+    set<string> word_list;
 
     load_words(word_list, "src/words.txt");
 

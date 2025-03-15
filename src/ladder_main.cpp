@@ -1,7 +1,7 @@
 #include "ladder.h"
 
 int main() {
-    unordered_set<string> word_list;
+    set<string> word_list;
     load_words(word_list, "src/words.txt");
 
 
