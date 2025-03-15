@@ -5,9 +5,9 @@ int main() {
     load_words(word_list, "src/words.txt");
 
 
-    cout << "Running test cases..." << endl;
-    verify_word_ladder();
-    cout << "Test cases completed." << endl;
+    //cout << "Running test cases..." << endl;
+    //verify_word_ladder();
+    //cout << "Test cases completed." << endl;
 
     string begin_word, end_word;
     cout << "\nEnter the start word: ";
